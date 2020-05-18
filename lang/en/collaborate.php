@@ -48,3 +48,4 @@ $string['pageviewed'] = 'Collaborate page viewed';
 // Mod form specific collaborate settings.
 $string['title'] = 'Activity title: ';
 $string['title_help'] = 'Please select a suitable title for your collaborate main page.';
+$string['texteditor'] = 'Instructions {$a}';
