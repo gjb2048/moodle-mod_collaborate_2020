@@ -16,9 +16,9 @@
 }}
 
 {{!
-    @template mod_collaborate/view
+    @template mod_collaborate/show
 
-    Moodle renders a simple view page
+    Moodle renders the show page
 
     Classes required for JS:
     * none
@@ -28,17 +28,19 @@
 
     Example context (json):
         {
-         "heading": "My heading",
-         "body": "My html body"
         }
 }}
-<div class="card">
+<div class = "container">
+  <div class="card">
     <div class="card-body">
-        <h2 class="card-title">{{heading}}</h2>
-        {{{body}}}
+      <h2 class="card-title">{{heading}}</h2>
+      <h3>{{# str }} user, mod_collaborate {{/ str }}{{user}}</h3>
+      {{{body}}}
+      <p>
+        <a href = "{{url_view}}" class="btn btn-primary">
+          {{# str }} returnview, mod_collaborate {{/ str }}
+        </a>
+      </p>
     </div>
-    <div class = "container">
-        <a href = "{{url_a}}" class="btn btn-primary">{{# str }} studenta, mod_collaborate {{/ str }}</a>
-        <a href = "{{url_b}}" class="btn btn-primary">{{# str }} studentb, mod_collaborate {{/ str }}</a>
-    </div>
+  </div>
 </div>

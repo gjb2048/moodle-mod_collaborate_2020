@@ -24,6 +24,7 @@
  * @see https://github.com/justinhunt/moodle-mod_collaborate
  */
 use \mod_collaborate\local\debugging;
+
 defined('MOODLE_INTERNAL') || die();
 
 /**
@@ -39,17 +40,42 @@ class mod_collaborate_renderer extends plugin_renderer_base {
      * @return none
      */
     public function render_view_page_content($collaborate, $cm) {
-
         $data = new stdClass();
 
         $data->heading = $collaborate->title;
         // Moodle handles processing of std intro field.
-        $data->body = format_module_intro('collaborate',
-                $collaborate, $cm->id);
+        $data->body = format_module_intro('collaborate', $collaborate, $cm->id);
+
+        // Set up the user page URLs.
+        $a = new moodle_url('/mod/collaborate/showpage.php', ['cid' => $collaborate->id, 'page' => 'a']);
+        $b = new moodle_url('/mod/collaborate/showpage.php', ['cid' => $collaborate->id, 'page' => 'b']);
+        $data->url_a = $a->out(false);
+        $data->url_b = $b->out(false);
 
         // Display the view page content.
         echo $this->output->header();
         echo $this->render_from_template('mod_collaborate/view', $data);
+        echo $this->output->footer();
+    }
+
+    public function render_page_content($collaborate, $cm, $page) {
+        $data = new stdClass();
+
+        $data->heading = $collaborate->title;
+
+        $data->user = strtoupper($page);
+
+        // Get the content from the database.
+        $content = ($page == 'a') ? $collaborate->instructionsa : $collaborate->instructionsb;
+        $data->body = $content;
+
+        // Get a return url back to view page.
+        $urlv = new moodle_url('/mod/collaborate/view.php', ['id' => $cm->id]);
+        $data->url_view = $urlv->out(false);
+
+        // Display the show page content.
+        echo $this->output->header();
+        echo $this->render_from_template('mod_collaborate/show', $data);
         echo $this->output->footer();
     }
 }

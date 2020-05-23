@@ -49,3 +49,11 @@ $string['pageviewed'] = 'Collaborate page viewed';
 $string['title'] = 'Activity title: ';
 $string['title_help'] = 'Please select a suitable title for your collaborate main page.';
 $string['texteditor'] = 'Instructions {$a}';
+
+// User button labels.
+$string['studenta'] = 'Partner A';
+$string['studentb'] = 'Partner B';
+
+$string['returnview'] = 'Return to view';
+
+$string['user'] = 'User :';
