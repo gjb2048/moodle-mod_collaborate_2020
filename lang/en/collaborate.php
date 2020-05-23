@@ -30,8 +30,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['modulename'] = 'collaborate';
-$string['modulenameplural'] = 'collaborates';
+$string['modulename'] = 'Collaborate';
+$string['modulenameplural'] = 'Collaborates';
 $string['modulename_help'] = 'Use the collaborate module for... | The collaborate module allows...';
 $string['collaborate:addinstance'] = 'Add a new collaborate';
 $string['collaborate:submit'] = 'Submit collaborate';
