@@ -79,12 +79,6 @@ function collaborate_add_instance(stdClass $collaborate, mod_collaborate_mod_for
 
     $collaborate->timecreated = time();
 
-    // Add new instance with dummy data for the editor fields.
-    $collaborate->instructionsa ='a';
-    $collaborate->instructionsaformat = FORMAT_HTML;
-    $collaborate->instructionsb ='b';
-    $collaborate->instructionsbformat = FORMAT_HTML;
-
     $collaborate->id = $DB->insert_record('collaborate', $collaborate);
 
     // Call std Moodle file_postupdate_standard editor to save files,
@@ -95,8 +89,10 @@ function collaborate_add_instance(stdClass $collaborate, mod_collaborate_mod_for
     $names = collaborate_editor::get_editor_names();
 
     foreach ($names as $name) {
-        $collaborate =  file_postupdate_standard_editor($collaborate, $name, $options,
+        $collaborate = file_postupdate_standard_editor($collaborate, $name, $options,
             $context, 'mod_collaborate', $name, $collaborate->id);
+        $editorname = $name.'_editor';
+        unset($collaborate->$editorname);
     }
 
     // OK editor data processed into two fields for database, update record.
@@ -454,7 +450,14 @@ function collaborate_pluginfile($course, $cm, $context, $filearea, array $args, 
 
     require_login($course, true, $cm);
 
-    send_file_not_found();
+    $fs = get_file_storage();
+    $relativepath = implode('/', $args);
+    $fullpath = "/$context->id/mod_collaborate/$filearea/$relativepath";
+    if (!$file = $fs->get_file_by_hash(sha1($fullpath)) or $file->is_directory()) {
+        return false;
+    }
+    // Finally send the file.
+    send_stored_file($file, 0, 0, $forcedownload, $options);
 }
 
 /* Navigation API */

@@ -56,4 +56,4 @@ $string['studentb'] = 'Partner B';
 
 $string['returnview'] = 'Return to view';
 
-$string['user'] = 'User :';
+$string['user'] = 'User: ';
