@@ -36,12 +36,13 @@ $string['modulename_help'] = 'Use the collaborate module for... | The collaborat
 $string['collaborate:addinstance'] = 'Add a new collaborate';
 $string['collaborate:submit'] = 'Submit collaborate';
 $string['collaborate:view'] = 'View collaborate';
+$string['collaborate:viewreportstab'] = 'View reports tab';
 $string['collaboratefieldset'] = 'Custom example fieldset';
 $string['collaboratename'] = 'Collaborate name';
 $string['collaboratename_help'] = 'The name of the collaboration.  Markdown syntax is supported.';
-$string['collaborate'] = 'collaborate';
-$string['pluginadministration'] = 'collaborate administration';
-$string['pluginname'] = 'collaborate';
+$string['collaborate'] = 'Collaborate';
+$string['pluginadministration'] = 'Collaborate administration';
+$string['pluginname'] = 'Collaborate';
 
 $string['pageviewed'] = 'Collaborate page viewed';
 
@@ -57,3 +58,11 @@ $string['studentb'] = 'Partner B';
 $string['returnview'] = 'Return to view';
 
 $string['user'] = 'User: ';
+
+// Admin settings.
+$string['enablereports'] = 'Enable reports';
+$string['enablereports_desc'] = 'Enable the reports.';
+
+// Reports
+$string['reportstab'] = 'Reports';
+$string['viewtab'] = 'View';

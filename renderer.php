@@ -39,7 +39,7 @@ class mod_collaborate_renderer extends plugin_renderer_base {
      * @param $cm the course module std Object
      * @return none
      */
-    public function render_view_page_content($collaborate, $cm) {
+    public function render_view_page_content($collaborate, $cm, $reportstab = false) {
         $data = new stdClass();
 
         $data->heading = $collaborate->title;
@@ -51,6 +51,16 @@ class mod_collaborate_renderer extends plugin_renderer_base {
         $b = new moodle_url('/mod/collaborate/showpage.php', ['cid' => $collaborate->id, 'page' => 'b']);
         $data->url_a = $a->out(false);
         $data->url_b = $b->out(false);
+
+        // Show reports tab?
+        $data->reportstab = $reportstab;
+        // Add links to reports tabs, if enabled.
+        if ($reportstab) {
+            $r = new \moodle_url('/mod/collaborate/reports.php', ['cid' => $collaborate->id]);
+            $v = new \moodle_url('/mod/collaborate/view.php', ['id' => $cm->id]);
+            $data->url_reports = $r->out(false);
+            $data->url_view = $v->out(false);
+        }
 
         // Display the view page content.
         echo $this->output->header();

@@ -71,5 +71,18 @@ $renderer = $PAGE->get_renderer('mod_collaborate');
 if (!$collaborate->intro) {
     $collaborate->intro = '';
 }
+
+// Add the module context for the reports tab permission.
+$context = context_module::instance($cm->id);
+
+// Show reports tab if permission exists and admin has allowed.
+$reportstab = false;
+$config = get_config('mod_collaborate');
+if ($config->enablereports) {
+    if (has_capability('mod/collaborate:viewreportstab', $context)) {
+        $reportstab = true;
+    }
+}
+
 // Call the renderer method to display the collaborate intro content.
-$renderer->render_view_page_content($collaborate, $cm);
+$renderer->render_view_page_content($collaborate, $cm, $reportstab);
