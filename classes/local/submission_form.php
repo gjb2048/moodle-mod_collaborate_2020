@@ -24,10 +24,10 @@
 namespace mod_collaborate\local;
 
 defined('MOODLE_INTERNAL') || die();
+require_once($CFG->libdir . '/formslib.php');
+require_once($CFG->libdir . '/filelib.php');
 
-require_once($CFG->dirroot.'/course/moodleform_mod.php');
-
-class submission_form extends \moodleform_mod {
+class submission_form extends \moodleform {
     public function definition() {
         global $DB;
         $mform = $this->_form;
@@ -42,22 +42,5 @@ class submission_form extends \moodleform_mod {
         $mform->setType('page', PARAM_TEXT);
         // Add a save button.
         $this->add_action_buttons(false, get_string('submissionsave', 'mod_collaborate'));
-    }
-
-    // Standard Moodle function for editor area preprocessing.
-    public function data_preprocessing(&$default_values) {
-        if ($this->current->instance) {
-            $context = $this->context;
-            $options = collaborate_editor::get_editor_options($context);
-            $default_values = (object) $default_values;
-            $default_values = file_prepare_standard_editor(
-                $default_values,
-                'submission',
-                $options,
-                $context,
-                'mod_collaborate',
-                'submission',
-                $default_values->id);
-        }
     }
 }
