@@ -66,3 +66,8 @@ $string['enablereports_desc'] = 'Enable the reports.';
 // Reports
 $string['reportstab'] = 'Reports';
 $string['viewtab'] = 'View';
+
+// Submissions form.
+$string['submission'] = 'Your submission';
+$string['submissionsave'] = 'Save submission';
+$string['submissionupdated'] = 'Submission updated';
