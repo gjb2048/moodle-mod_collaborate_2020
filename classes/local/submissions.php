@@ -159,8 +159,7 @@ class submissions {
         // We could use different strategies here.
         $maxscore = 0;
         foreach ($attempts as $attempt) {
-            $grade = $attempt->grade;
-            $maxscore = ($grade > $maxscore) ? $grade : $maxscore;
+            $maxscore = ($attempt->grade > $maxscore) ? $attempt->grade : $maxscore;
         }
         return $maxscore;
     }
