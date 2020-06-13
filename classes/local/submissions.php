@@ -92,7 +92,8 @@ class submissions {
             get_string('submission','mod_collaborate'),
             get_string('firstname', 'mod_collaborate'),
             get_string('lastname', 'mod_collaborate'),
-            get_string('grade',  'mod_collaborate')];
+            get_string('grade',  'mod_collaborate')
+        ];
     }
 
     /**

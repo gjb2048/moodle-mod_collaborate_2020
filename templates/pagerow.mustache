@@ -36,6 +36,10 @@
   <td>{{#shortentext}} 20, {{submission}}{{/shortentext}}</td>
   <td>{{firstname}}</td>
   <td>{{lastname}}</td>
-  <td>{{grade}}</td>
-  <td><a href="{{gradelink}}">{{gradetext}}</a></td>
+  <td>
+      <div class="row m-0">
+          <span class="col-5 pl-1 pr-1">{{grade}}</span>
+          <span class="col-7 pl-1 pr-1 text-center"><a href="{{gradelink}}">{{gradetext}}</a></span>
+      </div>
+  </td>
 </tr>
