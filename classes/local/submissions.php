@@ -117,9 +117,7 @@ class submissions {
             $data = array();
             $data['id'] = $record->id;
             $data['title'] = $collaborate->title;
-            $s = \format_string($record->submission);
-            $s = \strip_tags($s);
-            $data['submission'] = $s;
+            $data['submission'] = \strip_tags(\format_string($record->submission));
             $user = $DB->get_record('user', ['id' => $record->userid], '*', MUST_EXIST);
             $data['firstname'] = $user->firstname;
             $data['lastname'] = $user->lastname;
