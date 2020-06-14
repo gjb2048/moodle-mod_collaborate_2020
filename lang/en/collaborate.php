@@ -93,4 +93,5 @@ $string['grade_saved'] = 'Grade saved';
 // Name changer form.
 $string['nocollaborates'] = 'No collaborates';
 $string['action'] = 'Action';
-$string['edit'] = 'Edit';
+$string['edit'] = 'Edit mod name';
+$string['namechange'] = 'Change module name';
