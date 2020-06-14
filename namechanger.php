@@ -92,6 +92,7 @@ if ($mform->is_cancelled()) {
 // If we have data save it and return.
 if ($data = $mform->get_data()) {
     $DB->update_record('collaborate', $data);
+    purge_caches(array('other' => true));
     redirect($PAGE->url, get_string('updated', 'core', $data->name), 2);
 }
 
