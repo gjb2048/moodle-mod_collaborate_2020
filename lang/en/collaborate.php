@@ -89,3 +89,8 @@ $string['gradingheader'] = 'Grade a submission';
 $string['currentgrade'] = 'Current grade: ';
 $string['user'] = 'User: ';
 $string['grade_saved'] = 'Grade saved';
+
+// Name changer form.
+$string['nocollaborates'] = 'No collaborates';
+$string['action'] = 'Action';
+$string['edit'] = 'Edit';
