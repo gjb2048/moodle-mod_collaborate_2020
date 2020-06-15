@@ -95,3 +95,6 @@ $string['nocollaborates'] = 'No collaborates';
 $string['action'] = 'Action';
 $string['edit'] = 'Edit mod name';
 $string['namechange'] = 'Change module name';
+
+// Tasks
+$string['collaboratetask'] = 'Collaborate task';
