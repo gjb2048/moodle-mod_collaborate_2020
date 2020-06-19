@@ -95,9 +95,17 @@ if ($mform->is_cancelled()) {
 if ($data = $mform->get_data()) {
     // Set any existing grade to the form.
     $mform->set_data($data);
+
     // Update the submission data.
     submissions::update_grade($sid, $data->grade);
 
+    // Log the submission graded event.
+    $event = \mod_collaborate\event\submission_graded::create(
+        ['context' => $PAGE->context, 'objectid' => $PAGE->cm->instance]);
+    $event->add_record_snapshot('course', $PAGE->course);
+    $event->add_record_snapshot($PAGE->cm->modname, $collaborate);
+    $event->trigger();
+    
     // Update the gradebook.
     collaborate_update_grades($collaborate);
 
