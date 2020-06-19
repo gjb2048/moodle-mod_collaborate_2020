@@ -46,6 +46,7 @@ $string['pluginadministration'] = 'Collaborate administration';
 $string['pluginname'] = 'Collaborate';
 
 $string['pageviewed'] = 'Collaborate page viewed';
+$string['submission_submitted'] = 'Collaborate submission submitted';
 
 // Mod form specific collaborate settings.
 $string['title'] = 'Activity title: ';
