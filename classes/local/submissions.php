@@ -38,7 +38,15 @@ class submissions {
     public static function save_submission($data, $context, $cid, $page) {
         global $DB, $USER;
         $exists = self::get_submission($cid, $USER->id, $page);
-        if($exists) {
+        if ($exists) {
+            // Adapted from https://docs.moodle.org/dev/File_API#List_area_files
+            $fs = get_file_storage();
+            $files = $fs->get_area_files($context->id, 'mod_collaborate', 'submission', $exists->id);
+            foreach ($files as $f) {
+                // $f is an instance of stored_file.
+                echo $f->delete();
+            }
+
             $DB->delete_records('collaborate_submissions',
                 ['collaborateid' => $cid, 'userid' => $USER->id, 'page' => $page]);
         }
