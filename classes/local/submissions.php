@@ -44,7 +44,7 @@ class submissions {
             $files = $fs->get_area_files($context->id, 'mod_collaborate', 'submission', $exists->id);
             foreach ($files as $f) {
                 // $f is an instance of stored_file.
-                echo $f->delete();
+                $f->delete();
             }
 
             $DB->delete_records('collaborate_submissions',
