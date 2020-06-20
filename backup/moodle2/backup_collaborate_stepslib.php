@@ -43,6 +43,7 @@ class backup_collaborate_activity_structure_step extends backup_activity_structu
      * @return backup_nested_element
      */
     protected function define_structure() {
+
         // Get know if we are including userinfo.
         $userinfo = $this->get_setting_value('userinfo');
 
@@ -67,6 +68,7 @@ class backup_collaborate_activity_structure_step extends backup_activity_structu
 
         // Backup submissions table if backing up user data.
         if ($userinfo) {
+
             $submission->set_source_table('collaborate_submissions',
                     array('collaborateid' => backup::VAR_PARENTID));
         }

@@ -37,6 +37,7 @@ require_once($CFG->dirroot . '/mod/collaborate/backup/moodle2/backup_collaborate
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_collaborate
  * @see https://github.com/justinhunt/moodle-mod_collaborate */
+
 class backup_collaborate_activity_task extends backup_activity_task {
 
     /**
